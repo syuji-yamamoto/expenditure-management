@@ -2,70 +2,42 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
   <div class="row">
-  <form class="col s12">
-    <div class="row">
+    <form class="col s12">
       <div class="input-field col s6">
-        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-        <label for="first_name">First Name</label>
+        <%= f.label :nickname %><br />
+        <%= f.text_field :nickname, autocomplete: "off", id: "nickname", type: "text", class: "validate" %>
       </div>
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name</label>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "off", id: "email", type: "email", class: "validate" %>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-        <label for="disabled">Disabled</label>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
-        <label for="password">Password</label>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        This is an inline input field:
-        <div class="input-field inline">
-          <input id="email_inline" type="email" class="validate">
-          <label for="email_inline">Email</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autocomplete: "off", id: "first_name", type: "text", class: "validate" %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autocomplete: "off", id: "last_name", type: "text", class: "validate" %>
         </div>
       </div>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
     </div>
-  </form>
-</div>
+  </div>
+<% end %>
 
 <%= render "devise/shared/links" %>
