@@ -16,9 +16,9 @@
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">シンプル家計簿</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link_to "Saas", "#" %></li>
-          <li><%= link_to "Saas", "#" %></li>
-          <li><%= link_to "Saas", "#" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "Saas", "#" %></li>
         </ul>
       </div>
