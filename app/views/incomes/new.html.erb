@@ -1,5 +1,6 @@
 <h1>収入登録</h1>
 <%= form_with model: @income, local: true do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
 	<div class="row">
 		<div class="col s12">
 			<div class="row">
