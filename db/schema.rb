@@ -15,17 +15,21 @@ ActiveRecord::Schema.define(version: 2021_02_06_110143) do
   create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "expense_item", null: false
     t.integer "price", null: false
-    t.text "memo", null: false
+    t.text "memo"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "expense_item", null: false
     t.integer "price", null: false
-    t.text "memo", null: false
+    t.text "memo"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,4 +47,6 @@ ActiveRecord::Schema.define(version: 2021_02_06_110143) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expenses", "users"
+  add_foreign_key "incomes", "users"
 end
