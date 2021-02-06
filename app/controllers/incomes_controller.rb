@@ -1,6 +1,6 @@
-class ExpenseController < ApplicationController
+class IncomesController < ApplicationController
 
 	def new
 	end
-	
+
 end
