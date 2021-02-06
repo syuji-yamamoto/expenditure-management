@@ -1,9 +1,9 @@
 <h2>新規会員登録</h2>
 
-<%= form_with model:@user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s3">
       <em>(ニックネーム)</em>
       <%= f.label :nickname %><br />
       <%= f.text_field :nickname, autocomplete: "off", id: "nickname", type: "text", class: "validate" %>
