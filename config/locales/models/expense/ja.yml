@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      expense: 支出
+    attributes:
+      expense:
+        expense_item: 費目
+        price: 金額
