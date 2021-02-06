@@ -1,4 +1,6 @@
 class ExpenseController < ApplicationController
-	def index
+
+	def new
 	end
+	
 end
