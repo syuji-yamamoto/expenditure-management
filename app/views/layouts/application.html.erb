@@ -14,7 +14,7 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">シンプル家計簿</a>
+        <%= link_to "シンプル家計簿", root_path, class: "brand-logo" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
           <li><%= link_to current_user.nickname, "#" %></li>
