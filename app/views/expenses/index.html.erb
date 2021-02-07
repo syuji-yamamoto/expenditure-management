@@ -15,7 +15,7 @@
 					<span class="card-title"><%= expense.memo %></span>
 				</div>
 				<div class="card-action">
-					<%= link_to "詳細", "#" %>
+					<%= link_to "詳細", expense_path(expense.id) %>
 				</div>
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 					<span class="card-title"><%= income.memo %></span>
 				</div>
 				<div class="card-action">
-					<%= link_to "詳細", "#" %>
+					<%= link_to "詳細", income_path(income.id) %>
 				</div>
 			</div>
 		</div>

@@ -6,11 +6,16 @@ class IncomesController < ApplicationController
 
 	def create
 		@income = Income.new(params_income)
-		if @income.save
+		if @income.valid?
+			@income.save
 			redirect_to root_path
 		else
 			render "new"
 		end
+	end
+
+	def show
+		@income = Income.find(params[:id])
 	end
 
 	private
