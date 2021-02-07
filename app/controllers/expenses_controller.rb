@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
 	def index
-		@expenses = Expense.all
+		@expenses = Expense.order(created_at: "DESC").limit(5)
 		@incomes = Income.all
 	end
 
@@ -10,11 +10,15 @@ class ExpensesController < ApplicationController
 
 	def create
 		@expense = Expense.new(params_expense)
-		if @expense.save
+		if @expense.valid?
+			@expense.save
 			redirect_to root_path
 		else
 			render "new"
 		end
+	end
+
+	def show
 	end
 
 	private
