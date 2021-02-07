@@ -1,8 +1,41 @@
-<div class = "main-button">
-	<% if user_signed_in? %>
-		<ul>
-			<li><%= link_to "支出登録", new_expense_path, class: "waves-effect waves-light btn-large" %></li>
-			<li><%= link_to "収入登録", new_income_path, class: "waves-effect waves-light btn-large" %></li>
-		</ul>
+
+<% if user_signed_in? %>
+	<%= link_to "支出登録", new_expense_path, class: "waves-effect waves-light btn-large" %>
+	<%= link_to "収入登録", new_income_path, class: "waves-effect waves-light btn-large" %>
+<% end %>
+
+<h3>支出一覧</h3>
+<div class="row">
+	<% @expenses.each do |expense| %>
+		<div class="col s12 m3">
+			<div class="card blue-grey lighten-5">
+				<div class="card-content black-text">
+					<span class="card-title"><%= expense.expense_item %></span>
+					<span class="card-title"><%= expense.price %></span>
+					<span class="card-title"><%= expense.memo %></span>
+				</div>
+				<div class="card-action">
+					<%= link_to "詳細", "#" %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<h3>収入一覧</h3>
+<div class="row">
+	<% @incomes.each do |income| %>
+		<div class="col s12 m3">
+			<div class="card blue-grey lighten-5">
+				<div class="card-content black-text">
+					<span class="card-title"><%= income.expense_item %></span>
+					<span class="card-title"><%= income.price %></span>
+					<span class="card-title"><%= income.memo %></span>
+				</div>
+				<div class="card-action">
+					<%= link_to "詳細", "#" %>
+				</div>
+			</div>
+		</div>
 	<% end %>
 </div>
