@@ -2,42 +2,44 @@
 <% if user_signed_in? %>
 	<%= link_to "支出登録", new_expense_path, class: "waves-effect waves-light btn-large" %>
 	<%= link_to "収入登録", new_income_path, class: "waves-effect waves-light btn-large" %>
+
+	<h3>支出一覧</h3>
+	<div class="row">
+		<% @expenses.each do |expense| %>
+			<div class="col s12 m3">
+				<div class="card blue-grey lighten-5">
+					<div class="card-content black-text">
+						<span class="card-title">登録日:<%= expense.created_at.strftime("%Y年%m月%d日") %></span>
+						<span class="card-title">登録者:<%= expense.user.nickname %></span>
+						<span class="card-title">費目:<%= expense.expense_item %></span>
+						<span class="card-title">金額:¥<%= expense.price %></span>
+						<span class="card-title">メモ:<%= expense.memo %></span>
+					</div>
+					<div class="card-action">
+						<%= link_to "詳細", expense_path(expense.id) %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<h3>収入一覧</h3>
+	<div class="row">
+		<% @incomes.each do |income| %>
+			<div class="col s12 m3">
+				<div class="card blue-grey lighten-5">
+					<div class="card-content black-text">
+						<span class="card-title">登録日:<%= income.created_at.strftime("%Y年%m月%d日") %></span>
+						<span class="card-title">登録者:<%= income.user.nickname %></span>
+						<span class="card-title">費目:<%= income.expense_item %></span>
+						<span class="card-title">金額:¥<%= income.price %></span>
+						<span class="card-title">メモ:<%= income.memo %></span>
+					</div>
+					<div class="card-action">
+						<%= link_to "詳細", income_path(income.id) %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
 <% end %>
-
-<h3>支出一覧</h3>
-<div class="row">
-	<% @expenses.each do |expense| %>
-		<div class="col s12 m3">
-			<div class="card blue-grey lighten-5">
-				<div class="card-content black-text">
-					<span class="card-title">登録者:<%= expense.user.nickname %></span>
-					<span class="card-title">費目:<%= expense.expense_item %></span>
-					<span class="card-title">金額:¥<%= expense.price %></span>
-					<span class="card-title">メモ:<%= expense.memo %></span>
-				</div>
-				<div class="card-action">
-					<%= link_to "詳細", expense_path(expense.id) %>
-				</div>
-			</div>
-		</div>
-	<% end %>
-</div>
-
-<h3>収入一覧</h3>
-<div class="row">
-	<% @incomes.each do |income| %>
-		<div class="col s12 m3">
-			<div class="card blue-grey lighten-5">
-				<div class="card-content black-text">
-					<span class="card-title">登録者:<%= income.user.nickname %></span>
-					<span class="card-title">費目:<%= income.expense_item %></span>
-					<span class="card-title">金額:¥<%= income.price %></span>
-					<span class="card-title">メモ:<%= income.memo %></span>
-				</div>
-				<div class="card-action">
-					<%= link_to "詳細", income_path(income.id) %>
-				</div>
-			</div>
-		</div>
-	<% end %>
-</div>
