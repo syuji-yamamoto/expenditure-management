@@ -10,8 +10,9 @@
 		<div class="col s12 m3">
 			<div class="card blue-grey lighten-5">
 				<div class="card-content black-text">
+					<span class="card-title">登録者:<%= expense.user.nickname %></span>
 					<span class="card-title">費目:<%= expense.expense_item %></span>
-					<span class="card-title">金額：<%= expense.price %></span>
+					<span class="card-title">金額:¥<%= expense.price %></span>
 					<span class="card-title">メモ:<%= expense.memo %></span>
 				</div>
 				<div class="card-action">
@@ -28,8 +29,9 @@
 		<div class="col s12 m3">
 			<div class="card blue-grey lighten-5">
 				<div class="card-content black-text">
+					<span class="card-title">登録者:<%= income.user.nickname %></span>
 					<span class="card-title">費目:<%= income.expense_item %></span>
-					<span class="card-title">金額:<%= income.price %></span>
+					<span class="card-title">金額:¥<%= income.price %></span>
 					<span class="card-title">メモ:<%= income.memo %></span>
 				</div>
 				<div class="card-action">
