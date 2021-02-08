@@ -1,1 +1,15 @@
-hello world
+<h3>支出詳細</h3>
+<div class="row">
+	<div class="col s12 m6">
+		<div class="card blue-grey lighten-5">
+			<div class="card-content black-text">
+				<span class="card-title">費目:<%= @expense.expense_item %></span>
+				<span class="card-title">金額:<%= @expense.price %></span>
+				<span class="card-title">メモ:<%= @expense.memo %></span>
+			</div>
+			<div class="card-action">
+				<%= link_to "編集", edit_expense_path(@expense.id) %>
+			</div>
+		</div>
+	</div>
+</div>
