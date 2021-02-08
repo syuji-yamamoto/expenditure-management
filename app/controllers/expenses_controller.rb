@@ -1,7 +1,9 @@
 class ExpensesController < ApplicationController
+	before_action :set_expense, only: [:show, :edit, :update]
+
 	def index
 		@expenses = Expense.order(created_at: "DESC").limit(5)
-		@incomes = Income.all
+		@incomes = Income.order(created_at: "DESC").limit(5)
 	end
 
 	def new
@@ -19,16 +21,13 @@ class ExpensesController < ApplicationController
 	end
 
 	def show
-		@expense = Expense.find(params[:id])
 	end
 
 	def edit
-		@expense = Expense.find(params[:id])
 		redirect_to root_path unless @expense.user_id == current_user.id
 	end
 
 	def update
-		@expense = Expense.find(params[:id])
 		if @expense.update(params_expense)
 			redirect_to root_path
 		else
@@ -40,5 +39,9 @@ class ExpensesController < ApplicationController
 
 	def params_expense
 		params.require(:expense).permit(:expense_item, :price, :memo).merge(user_id: current_user.id)
+	end
+
+	def set_expense
+		@expense = Expense.find(params[:id])
 	end
 end

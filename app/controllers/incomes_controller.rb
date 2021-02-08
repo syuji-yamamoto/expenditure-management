@@ -1,4 +1,5 @@
 class IncomesController < ApplicationController
+	before_action :set_income, only: [:show, :edit, :update]
 
 	def new
 		@income = Income.new
@@ -15,16 +16,13 @@ class IncomesController < ApplicationController
 	end
 
 	def show
-		@income = Income.find(params[:id])
 	end
 
 	def edit
-		@income = Income.find(params[:id])
 		redirect_to root_path unless @income.user_id == current_user.id
 	end
 
 	def update
-		@income = Income.find(params[:id])
 		if @income.update(params_income)
 			redirect_to root_path
 		else
@@ -38,4 +36,7 @@ class IncomesController < ApplicationController
 		params.require(:income).permit(:expense_item, :price, :memo).merge(user_id: current_user.id)
 	end
 
+	def set_income
+		@income = Income.find(params[:id])
+	end
 end
