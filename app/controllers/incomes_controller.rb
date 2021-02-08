@@ -1,5 +1,5 @@
 class IncomesController < ApplicationController
-	before_action :set_income, only: [:show, :edit, :update]
+	before_action :set_income, only: [:show, :edit, :update, :destroy]
 
 	def new
 		@income = Income.new
@@ -28,6 +28,11 @@ class IncomesController < ApplicationController
 		else
 			render "edit"
 		end
+	end
+
+	def destroy
+		@income.delete if @income.user_id == current_user.id
+		redirect_to root_path
 	end
 
 	private

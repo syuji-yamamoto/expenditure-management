@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-	before_action :set_expense, only: [:show, :edit, :update]
+	before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@expenses = Expense.order(created_at: "DESC").limit(5)
@@ -33,6 +33,11 @@ class ExpensesController < ApplicationController
 		else
 			render "edit"
 		end
+	end
+
+	def destroy
+		@expense.delete if @expense.user_id == current_user.id
+		redirect_to root_path
 	end
 
 	private
