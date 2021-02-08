@@ -6,7 +6,7 @@
 				<span class="card-title">今月の支出合計:¥<%= @expense_sum_price %></span>
 			</div>
 			<div class="card-action">
-				<%= link_to "グラフで見る", "#" %>
+				<%= link_to "グラフで見る", expense_chart_user_path %>
 			</div>
 		</div>
 	</div>
@@ -20,7 +20,7 @@
 				<span class="card-title">今月の収入合計:¥<%= @income_sum_price %></span>
 			</div>
 			<div class="card-action">
-				<%= link_to "グラフで見る", "#" %>
+				<%= link_to "グラフで見る", income_chart_user_path %>
 			</div>
 		</div>
 	</div>
