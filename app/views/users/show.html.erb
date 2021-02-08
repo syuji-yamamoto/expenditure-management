@@ -7,7 +7,6 @@
 			</div>
 			<div class="card-action">
 				<%= link_to "グラフで見る", "#" %>
-				<%= link_to "削除", "#" %>
 			</div>
 		</div>
 	</div>
@@ -22,8 +21,12 @@
 			</div>
 			<div class="card-action">
 				<%= link_to "グラフで見る", "#" %>
-				<%= link_to "削除", "#" %>
 			</div>
 		</div>
 	</div>
 </div>
+<% if @income_sum_price > @expense_sum_price %>
+	プラス<%= @total_amount %>
+<% else %>
+	マイナス<%= @total_amount %>
+<% end %>
