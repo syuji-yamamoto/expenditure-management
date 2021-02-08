@@ -10,9 +10,9 @@
 		<div class="col s12 m3">
 			<div class="card blue-grey lighten-5">
 				<div class="card-content black-text">
-					<span class="card-title"><%= expense.expense_item %></span>
-					<span class="card-title"><%= expense.price %></span>
-					<span class="card-title"><%= expense.memo %></span>
+					<span class="card-title">費目:<%= expense.expense_item %></span>
+					<span class="card-title">金額：<%= expense.price %></span>
+					<span class="card-title">メモ:<%= expense.memo %></span>
 				</div>
 				<div class="card-action">
 					<%= link_to "詳細", expense_path(expense.id) %>
@@ -28,9 +28,9 @@
 		<div class="col s12 m3">
 			<div class="card blue-grey lighten-5">
 				<div class="card-content black-text">
-					<span class="card-title"><%= income.expense_item %></span>
-					<span class="card-title"><%= income.price %></span>
-					<span class="card-title"><%= income.memo %></span>
+					<span class="card-title">費目:<%= income.expense_item %></span>
+					<span class="card-title">金額:<%= income.price %></span>
+					<span class="card-title">メモ:<%= income.memo %></span>
 				</div>
 				<div class="card-action">
 					<%= link_to "詳細", income_path(income.id) %>
