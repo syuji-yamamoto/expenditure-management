@@ -18,6 +18,20 @@ class IncomesController < ApplicationController
 		@income = Income.find(params[:id])
 	end
 
+	def edit
+		@income = Income.find(params[:id])
+		redirect_to root_path unless @income.user_id == current_user.id
+	end
+
+	def update
+		@income = Income.find(params[:id])
+		if @income.update(params_income)
+			redirect_to root_path
+		else
+			render "edit"
+		end
+	end
+
 	private
 
 	def params_income

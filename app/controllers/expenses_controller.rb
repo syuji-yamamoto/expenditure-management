@@ -22,6 +22,20 @@ class ExpensesController < ApplicationController
 		@expense = Expense.find(params[:id])
 	end
 
+	def edit
+		@expense = Expense.find(params[:id])
+		redirect_to root_path unless @expense.user_id == current_user.id
+	end
+
+	def update
+		@expense = Expense.find(params[:id])
+		if @expense.update(params_expense)
+			redirect_to root_path
+		else
+			render "edit"
+		end
+	end
+
 	private
 
 	def params_expense
