@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "expenses#index"
   resources :expenses
   resources :incomes, except: [:index]
+  resources :users, only: :show
 end
