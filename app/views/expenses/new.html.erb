@@ -1,37 +1,22 @@
 <h1>支出登録</h1>
 <%= form_with model: @expense, local: true do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
-
 	<div class="row">
-		<div class="col s12">
-			<div class="row">
-				<div class="input-field col s6">
-					<%= f.text_field :expense_item, id: "input_text" %>
-					<%= f.label :expense_item, id: "input_text" %>
-				</div>
-			</div>
-
-  <label>費目</label>
-  <select class="browser-default">
-    <option value="" disabled selected>費目を選択してください</option>
-    <option value="1">食費</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-
-			<div class="row">
-				<div class="input-field col s6">
-					<%= f.text_field :price, id: "input_text" %>
-					<%= f.label :price, id: "input_text" %>
-				</div>
-			</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					<%= f.text_area :memo, id: "textarea2", class: "materialize-textarea" %>
-					<%= f.label :memo, for: "textarea2" %>
-				</div>
-			</div>
+		<div class="col s2">
+			<div class="list-items">費目</div>
+			<%= f.collection_select :expense_item, ExpenseItem.all, :id, :name, { prompt: "選択してください" }, { class: "select-item" } %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s6">
+			<%= f.text_field :price, id: "input_text" %>
+			<%= f.label :price, id: "input_text" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s6">
+			<%= f.text_area :memo, id: "textarea2", class: "materialize-textarea" %>
+			<%= f.label :memo, for: "textarea2" %>
 		</div>
 	</div>
 	<div class="input-field col s6">
