@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'rails-i18n'
 gem 'chartkick'
+gem 'active_hash'
 
 group :development, :test do
   gem 'pry-rails'
