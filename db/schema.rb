@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_02_06_110143) do
 
   create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "expense_item", null: false
+    t.integer "expense_item", null: false
     t.integer "price", null: false
     t.text "memo"
     t.bigint "user_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_06_110143) do
   end
 
   create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "expense_item", null: false
+    t.integer "expense_item", null: false
     t.integer "price", null: false
     t.text "memo"
     t.bigint "user_id"
