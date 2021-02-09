@@ -2,8 +2,10 @@ class ExpensesController < ApplicationController
 	before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@expenses = Expense.order(created_at: "DESC").limit(5)
-		@incomes = Income.order(created_at: "DESC").limit(5)
+		@user_expenses = current_user.expenses
+		@user_incomes = current_user.incomes
+		@expenses = @user_expenses.order(created_at: "DESC").limit(5)
+		@incomes = @user_incomes.order(created_at: "DESC").limit(5)
 	end
 
 	def new

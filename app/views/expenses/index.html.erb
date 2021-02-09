@@ -2,7 +2,7 @@
 	<%= link_to "支出登録", new_expense_path, class: "waves-effect waves-light btn-large" %>
 	<%= link_to "収入登録", new_income_path, class: "waves-effect waves-light btn-large" %>
 	<%= link_to "マイページ", user_path(current_user.id), class: "waves-effect waves-light btn-large" %>
-	<h4>支出一覧</h4>
+	<h4><%= current_user.nickname %>さんの支出一覧</h4>
 	<div class="row">
 		<% @expenses.each do |expense| %>
 			<div class="col s12 m3">
@@ -21,7 +21,7 @@
 			</div>
 		<% end %>
 	</div>
-	<h4>収入一覧</h4>
+	<h4><%= current_user.nickname %>さんの収入一覧</h4>
 	<div class="row">
 		<% @incomes.each do |income| %>
 			<div class="col s12 m3">
