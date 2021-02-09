@@ -1,1 +1,3 @@
-<%= column_chart @incomes.group(:expense_item).sum(:price), id: "column-chart", width: "800px", height: "500px" %>
+<h4><%= current_user.nickname %>さんの収入推移</h4>
+
+<%= line_chart @incomes, id: "column-chart", width: "800px", height: "500px" %>
