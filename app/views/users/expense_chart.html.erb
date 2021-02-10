@@ -1,3 +1,2 @@
 <h4><%= current_user.nickname %>さんの支出推移</h4>
-
-<%= line_chart @expenses, id: "column-chart", width: "800px", height: "500px" %>
+<%= pie_chart @expense_data %>

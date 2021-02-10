@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 	end
 
 	def expense_chart
-		@expenses = current_user.expenses.group("date(created_at)").sum(:price)
+		@expense_data = Expense.expense_name
 	end
 
 	def income_chart
-		@incomes = current_user.incomes.group("date(created_at)").sum(:price)
+		@income_data = Income.income_name
 	end
 end

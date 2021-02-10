@@ -5,8 +5,8 @@ class ExpensesController < ApplicationController
 		if user_signed_in?
 			@user_expenses = current_user.expenses
 			@user_incomes = current_user.incomes
-			@expenses = @user_expenses.order(created_at: "DESC").limit(5)
-			@incomes = @user_incomes.order(created_at: "DESC").limit(5)
+			@expenses = @user_expenses.order(created_at: "DESC").limit(4)
+			@incomes = @user_incomes.order(created_at: "DESC").limit(4)
 		end
 	end
 
