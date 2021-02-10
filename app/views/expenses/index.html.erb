@@ -11,7 +11,7 @@
 						<span class="card-title">登録日:<%= expense.created_at.strftime("%Y年%m月%d日") %></span>
 						<span class="card-title">登録者:<%= expense.user.nickname %></span>
 						<span class="card-title">費目:<%= expense.expense_item.name %></span>
-						<span class="card-title">金額:¥<%= expense.price %></span>
+						<span class="card-title">金額:¥<%= expense.price.to_s(:delimited, delimiter: ',') %></span>
 						<span class="card-title">メモ:<%= expense.memo %></span>
 					</div>
 					<div class="card-action">
@@ -30,7 +30,7 @@
 						<span class="card-title">登録日:<%= income.created_at.strftime("%Y年%m月%d日") %></span>
 						<span class="card-title">登録者:<%= income.user.nickname %></span>
 						<span class="card-title">費目:<%= income.income_item.name %></span>
-						<span class="card-title">金額:¥<%= income.price %></span>
+						<span class="card-title">金額:¥<%= income.price.to_s(:delimited, delimiter: ',') %></span>
 						<span class="card-title">メモ:<%= income.memo %></span>
 					</div>
 					<div class="card-action">
