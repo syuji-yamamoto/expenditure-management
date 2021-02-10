@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col s2">
 			<div class="list-items">費目</div>
-			<%= f.collection_select :expense_item, IncomeItem.all, :id, :name, { prompt: "選択してください" }, { class: "select-item" } %>
+			<%= f.collection_select :income_item_id, IncomeItem.all, :id, :name, { prompt: "選択してください" }, { class: "select-item" } %>
 		</div>
 	</div>
 	<div class="row">
