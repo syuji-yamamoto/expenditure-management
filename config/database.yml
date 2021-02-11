@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: expenditure_management_production
-  username: expenditure_management
+  database: expenditure-management-production
+  username: expenditure-management
   password: <%= ENV['EXPENDITURE_MANAGEMENT_DATABASE_PASSWORD'] %>
